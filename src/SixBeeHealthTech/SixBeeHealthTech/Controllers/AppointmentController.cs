@@ -15,7 +15,12 @@ public class AppointmentController : Controller {
 
     // GET: APPOINTMENTEDITMODELS
     public async Task<IActionResult> Index() {
-        return View(await _context.Appointments.Select(a => new AppointmentEditModel(a)).ToListAsync());
+        var appts = await (from a in _context.Appointments
+                            orderby a.When
+                            select new AppointmentEditModel(a))
+                            .ToListAsync();
+
+        return View(appts);
     }
 
     // GET: APPOINTMENTEDITMODELS/Details/5
