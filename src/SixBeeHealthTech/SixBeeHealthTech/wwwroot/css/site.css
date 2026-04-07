@@ -38,4 +38,8 @@ table.appointments.table tr {
   &.not-approved td {
     background-color: lightpink;
   }
+
+  a {
+      cursor: pointer;
+  }
 }
