@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using SixBeeTechHealthTech.Models;
+using SixBeeHealthTech.Models;
 
-namespace SixBeeTechHealthTech.Controllers;
+namespace SixBeeHealthTech.Controllers;
 
 public class HomeController : Controller {
     public IActionResult Index() {

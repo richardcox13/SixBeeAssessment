@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
-namespace SixBeeTechHealthTech.Data.Seeding;
+namespace SixBeeHealthTech.Data.Seeding;
 
 public static class IdentitySeeder {
     public static async Task SeedRolesAndAdminAsync(IServiceProvider serviceProvider) {

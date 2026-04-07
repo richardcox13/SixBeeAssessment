@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SixBeeTechHealthTech.Data.Migrations;
+namespace SixBeeHealthTech.Data.Migrations;
 
 public partial class CreateIdentitySchema : Migration {
     protected override void Up(MigrationBuilder migrationBuilder) {

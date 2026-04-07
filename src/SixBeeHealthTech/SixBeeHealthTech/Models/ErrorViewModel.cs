@@ -1,4 +1,4 @@
-namespace SixBeeTechHealthTech.Models;
+namespace SixBeeHealthTech.Models;
 
 public class ErrorViewModel {
     public string? RequestId { get; set; }

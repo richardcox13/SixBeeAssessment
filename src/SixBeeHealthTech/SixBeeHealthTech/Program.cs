@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using SixBeeTechHealthTech.Data;
-using SixBeeTechHealthTech.Data.Seeding;
+using SixBeeHealthTech.Data;
+using SixBeeHealthTech.Data.Seeding;
 
 var builder = WebApplication.CreateBuilder(args);
 

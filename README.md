@@ -12,6 +12,7 @@ See snapshot of [instructions](./Instructions.md).
 - From VS's package manager console run `update-database`.
 - Run the project.
 
+
 # Notes & Choices on Approach
 
 ## Technology & Platform

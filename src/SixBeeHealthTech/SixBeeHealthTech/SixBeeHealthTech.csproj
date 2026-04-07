@@ -4,7 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-SixBeeTechHealthTech-f9305cf8-20fb-47cd-b561-047f2339f29f</UserSecretsId>
+    <UserSecretsId>aspnet-SixBeeHealthTech-f9305cf8-20fb-47cd-b561-047f2339f29f</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

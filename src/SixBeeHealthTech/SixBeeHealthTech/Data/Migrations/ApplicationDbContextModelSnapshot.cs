@@ -3,16 +3,14 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SixBeeTechHealthTech.Data;
+using SixBeeHealthTech.Data;
 
-namespace SixBeeTechHealthTech.Data.Migrations;
+namespace SixBeeHealthTech.Data.Migrations;
 
 [DbContext(typeof(ApplicationDbContext))]
-[Migration("00000000000000_CreateIdentitySchema")]
-partial class CreateIdentitySchema {
-    protected override void BuildTargetModel(ModelBuilder modelBuilder) {
+partial class ApplicationDbContextModelSnapshot : ModelSnapshot {
+    protected override void BuildModel(ModelBuilder modelBuilder) {
 #pragma warning disable 612, 618
         modelBuilder
             .HasAnnotation("ProductVersion", "3.0.0")
