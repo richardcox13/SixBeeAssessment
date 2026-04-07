@@ -23,3 +23,5 @@ See snapshot of [instructions](./Instructions.md).
 - There is very little business logic 
 
 - For a larger MVC project I would set up for "feature folders" to keep controller, views, & models together. However within this scope that brings little benefit. The benefits come as the scope increases, especially with a target of a "modular monolith".
+
+- Use "Individual Accounts" for authentication & authorisation in ASP.NET Core Identity as it satisfies the requirement to use the local DB.
