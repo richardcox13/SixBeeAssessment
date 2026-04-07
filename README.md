@@ -34,3 +34,7 @@ See snapshot of [instructions](./Instructions.md).
 - For a larger MVC project I would set up for "feature folders" to keep controller, views, & models together. However within this scope that brings little benefit. The benefits come as the scope increases, especially with a target of a "modular monolith".
 
 - Use "Individual Accounts" for authentication & authorisation in ASP.NET Core Identity as it satisfies the requirement to use the local DB.
+
+- Sizes of name and email columns are somewhat arbitrary of course.
+
+- If the scope included internationalisation time zone handling would be needed. This is an area, when setting future times for appointments, that "just use UTC" doesn't work and there is no simple approach.
