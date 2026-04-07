@@ -38,8 +38,6 @@ public class AppointmentEditModel {
     public string Email { get; set; } = null!;
 
     public Appointment UpdateAppointment(Appointment appt) {
-        Debug.Assert(appt.Id == Id);
-
         appt.Name = Name;
         appt.When = When;
         appt.Description = Description;

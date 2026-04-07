@@ -1,9 +1,11 @@
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SixBeeHealthTech.Data;
 using SixBeeHealthTech.Models;
 
+[Authorize]
 public class AppointmentController : Controller {
     private readonly ApplicationDbContext _context;
 
@@ -32,6 +34,7 @@ public class AppointmentController : Controller {
     }
 
     // GET: APPOINTMENTEDITMODELS/Create
+    [AllowAnonymous]
     public IActionResult Create() {
         return View();
     }
@@ -41,13 +44,18 @@ public class AppointmentController : Controller {
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(AppointmentEditModel appointmenteditmodel) {
+    [AllowAnonymous]
+    public async Task<IActionResult> Create(AppointmentEditModel model) {
         if (ModelState.IsValid) {
-            _context.Add(appointmenteditmodel);
+            var appt = model.UpdateAppointment(new Appointment());
+
+            _context.Add(appt);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            // Anon-users can't access appointment listing...
+            return RedirectToAction(nameof(Index), "Home");
         }
-        return View(appointmenteditmodel);
+
+        return View(model);
     }
 
     // GET: APPOINTMENTEDITMODELS/Edit/5
@@ -87,8 +95,7 @@ public class AppointmentController : Controller {
                     throw;
                 }
             }
-            // Anon-users can't access appointment listing...
-            return RedirectToAction(nameof(Index), "Home");
+            return RedirectToAction(nameof(Index));
         }
 
         return View(model);
