@@ -1,4 +1,4 @@
-@model IEnumerable<SixBeeHealthTech.Models.AppointmentEditModel>
+@model IEnumerable<SixBeeHealthTech.Models.AppointmentListModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table appointments">
     <thead>
         <tr>
             <th>
@@ -27,12 +27,16 @@
             <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Approved)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
+    @foreach (var item in Model) {
+        var className = item.Approved ? "approved" : "not-approved";
+        <tr class="@className">
             <td>
                 @Html.DisplayFor(model => item.Name)
             </td>
@@ -47,6 +51,9 @@
             </td>
             <td>
                 @Html.DisplayFor(model => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Approved)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

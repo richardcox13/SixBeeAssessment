@@ -17,7 +17,7 @@ public class AppointmentController : Controller {
     public async Task<IActionResult> Index() {
         var appts = await (from a in _context.Appointments
                             orderby a.When
-                            select new AppointmentEditModel(a))
+                            select new AppointmentListModel(a))
                             .ToListAsync();
 
         return View(appts);
