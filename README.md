@@ -4,6 +4,14 @@
 
 See snapshot of [instructions](./Instructions.md).
 
+# To Rum
+
+- Use Visual Studio 2026 (and edition should work) with the ASP.NET Core workload.
+- Load the solution.
+- Create database SixBeeTechHealthTech in local SQL Server, with current use having dba role.
+- From VS's package manager console run `update-database`.
+- Run the project.
+
 # Notes & Choices on Approach
 
 ## Technology & Platform

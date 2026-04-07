@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SixBeeTechHealthTech.Data;
+using SixBeeTechHealthTech.Data.Seeding;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,11 @@ if (app.Environment.IsDevelopment()) {
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
+}
+
+// Run seeding
+using (var scoped = app.Services.CreateScope()) {
+    await IdentitySeeder.SeedRolesAndAdminAsync(scoped.ServiceProvider);
 }
 
 app.UseHttpsRedirection();
