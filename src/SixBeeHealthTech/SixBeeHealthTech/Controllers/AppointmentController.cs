@@ -134,6 +134,17 @@ public class AppointmentController : Controller {
         return RedirectToAction(nameof(Index));
     }
 
+    // POST: Appointments/Approve/5
+    [HttpPost, ActionName("Approve")]
+    public async Task<IActionResult> Approve(int? id, bool state) {
+        var appt = await _context.Appointments.FindAsync(id);
+        if (appt != null) {
+            appt.Approved = state;
+            await _context.SaveChangesAsync();
+        }
+        return RedirectToAction(nameof(Index));
+    }
+
     private bool AppointmentEditModelExists(int? id) {
         return _context.Appointments.Any(e => e.Id == id);
     }

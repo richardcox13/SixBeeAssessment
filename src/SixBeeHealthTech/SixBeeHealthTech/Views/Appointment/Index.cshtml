@@ -56,6 +56,15 @@
                 @Html.DisplayFor(model => item.Approved)
             </td>
             <td>
+                @if (item.Approved)
+                {
+                    <a data-id="@item.Id" data-action="unapprove" class="approve" >Un-approve</a>
+                }
+                else
+                {
+                    <a data-id="@item.Id" data-action="approve" class="approve">Approve</a>
+                }
+                |
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
@@ -64,3 +73,34 @@
 }
     </tbody>
 </table>
+
+<script type="module">
+    // This should be in minified/bundled site level js!
+    async function doApproval(id, state) {
+        const url = `./Appointment/Approve?id=${id}&state=${state}`;
+        console.log(url);
+        let req = {
+            method: "POST",
+            body: JSON.stringify({ id: id, state: state }),
+            credentials: "same-origin",
+            headers: new Headers({'content-type': 'application/json'}),
+        };
+
+        let resp = await fetch(new Request(url, req));
+        // KISS!
+        location.reload();
+        console.log(resp.status);
+    }
+
+    let approves = document.querySelectorAll("table a[data-action=\"approve\"]");
+    approves.forEach(item => {
+        let id = item.dataset.id;
+        item.addEventListener("click", () => { doApproval(id, true) });
+    });
+    let unapproves = document.querySelectorAll("table a[data-action=\"unapprove\"]");
+    unapproves.forEach(item => {
+        let id = item.dataset.id;
+        item.addEventListener("click", () => { doApproval(id, false) });
+    });
+
+</script>
